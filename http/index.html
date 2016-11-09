@@ -7,10 +7,21 @@
   <body>
     <form action='do.njs' method='GET'>
     <!-- 當有某些特殊需求(想要直接傳給使用者看的時候，)會使用get -->
-      Student ID: <input type='text' id='num'><br>
+      Student ID: <input type='text' id='num' placeholder='student ID'  name='number'><br>
     <input type='submit' value='get submit'>
     </form>
     <p in="failed"><p>
-    <script src='app.js'></script> 
+    <script>
+		$('form').submit(function(e){
+		  e.preventDefault();
+			    $.ajax({
+					  url:'do.njs',
+						data:{'number':$('#num').val()},
+						success:(data)=>{
+							$('#failed').html(data);
+		        }
+			   });
+	    });
+		</script> 
   </body>
 </html>
