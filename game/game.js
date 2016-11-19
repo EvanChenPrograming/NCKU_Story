@@ -3,10 +3,11 @@ import PreLogin from 'states/PreLogin';
 import Login from 'states/Login';
 import PreSelect from 'states/PreSelect';
 import SelectChar from 'states/SelectChar';
+import PreCreateChar from 'states/PreCreateChar';
+import CreateChar from 'states/CreateChar'
 import PreMain from 'states/PreMain';
 import Main from 'states/Main';
 import Reload from 'states/Reload';
-import Abort from 'states/Abort';
 
 class Game extends Phaser.Game{
 
@@ -18,10 +19,11 @@ class Game extends Phaser.Game{
     this.state.add('Login', Login);
     this.state.add('PreSelect', PreSelect);
     this.state.add('SelectChar', SelectChar);
+    this.state.add('PreCreateChar', PreCreateChar);
+    this.state.add('CreateChar', CreateChar);
     this.state.add('PreMain', PreMain);
     this.state.add('Main', Main);
     this.state.add('Reload', Reload);
-    this.state.add('Abort', Abort);
 
     this.state.start('Boot');
   }
