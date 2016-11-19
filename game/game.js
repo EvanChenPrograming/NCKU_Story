@@ -57,6 +57,7 @@ function setTileCollision(mapLayer, idxOrArray, dirs) {
     }
 }
 
+
 //Define states
 NSgame.Boot = function(){};
 NSgame.preLogin = function(){};
