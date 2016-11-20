@@ -7,6 +7,7 @@ class Boot extends Phaser.State {
 
   create() {
     this.game.stage.backgroundColor = '#fff';
+    this.game.plugins.add(Fabrique.Plugins.InputField);
     this.state.start('PreLogin');
   }
 }
