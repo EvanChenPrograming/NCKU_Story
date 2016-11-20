@@ -1,14 +1,11 @@
 class PreMain extends Phaser.State {
 
-  constructor(){
-    super();
-  }
+  /*init() {
 
-  init() {
-
-  }
+  }*/
 
   preload() {
+    this.game.stage.backgroundColor = '#9d06a3';
 
   }
 

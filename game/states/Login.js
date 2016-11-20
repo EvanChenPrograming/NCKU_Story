@@ -1,5 +1,6 @@
 import * as GlobalVar from "../functions/GlobalVar"
 
+let user_name, user_passwd;
 
 class Login extends Phaser.State {
 
@@ -7,7 +8,7 @@ class Login extends Phaser.State {
 
     this.game.add.tileSprite(0, 0, 1280, 720, 'bg');
     this.confirm = this.game.add.button(this.game.world.centerX+100, 400, 'enter', this.onClick);
-    this.user_name = this.game.add.inputField(540, 233, {
+    user_name = this.game.add.inputField(540, 233, {
       font: '25px Arial',
       fill: '#212121',
       fontWeight: 'bold',
@@ -20,10 +21,10 @@ class Login extends Phaser.State {
       placeHolder: 'Username',
       textAlign: 'center'
     });
-    this.user_name.setText(GlobalVar.usr_name);
-    this.user_name.blockInput = false;
+    user_name.setText(GlobalVar.usr_name);
+    user_name.blockInput = false;
 
-    this.user_passwd = this.game.add.inputField(540, 315, {
+    user_passwd = this.game.add.inputField(540, 315, {
       font: '25px Arial',
       fill: '#212121',
       fontWeight: 'bold',
@@ -37,21 +38,27 @@ class Login extends Phaser.State {
       textAlign: 'center',
       type: Fabrique.InputType.password,
     });
-    this.user_passwd.setText(GlobalVar.usr_passwd);
-
+    user_passwd.setText(GlobalVar.usr_passwd);
     //this.KeyEnter = this.game.input.keyboard.addKey(Phaser.Keyboard.ENTER);
 
   }
 
   onClick() {
 
-    //communication with server
-    if(this.user_name == GlobalVar.usr_name && this.user_passwd == GlobalVar.usr_passwd){
-
+    //not communicating with server
+    if(user_name.value == GlobalVar.usr_name && user_passwd.value == GlobalVar.usr_passwd){
+      GlobalVar.bgm.stop();
+      user_name.destroy();
+      user_passwd.destroy();
+      GlobalVar.usrUID = 34041092;
+      this.game.state.start('PreMain');
+      //this.state.start('PreSelect');
+    }
+    else {
+      alert('Wrong password or wrong username!!');
+      user_passwd.setText();
     }
 
-    GlobalVar.bgm.stop();
-    //this.state.start('PreMain');
   }
 
 }

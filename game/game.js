@@ -1,3 +1,5 @@
+import * as GlobalVar from './functions/GlobalVar';
+
 import Boot from './states/Boot';
 import PreLogin from './states/PreLogin';
 import Login from './states/Login';
@@ -24,8 +26,17 @@ class Game extends Phaser.Game{
     this.state.add('PreMain', PreMain);
     this.state.add('Main', Main);
     this.state.add('Reload', Reload);
-
-    this.state.start('Boot');
+    if(typeof GlobalVar.usrUID !== 'undefined'){
+      if(typeof GlobalVar.Char !== 'undefined'){
+        this.state.start('PreMain');
+      }
+      else{
+        this.state.start('PreSelect');
+      }
+    }
+    else {
+      this.state.start('Boot');
+    }
   }
 
 }
