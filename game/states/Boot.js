@@ -1,8 +1,8 @@
 class Boot extends Phaser.State {
 
   preload() {
-    this.load.image('icon', 'assets/system/icon.jpg');
-    this.load.image('loadbar', 'assets/system/ProgressBar.png');
+    this.load.image('icon', 'system/icon.jpg');
+    this.load.image('loadbar', 'system/ProgressBar.png');
   }
 
   create() {

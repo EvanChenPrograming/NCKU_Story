@@ -19,6 +19,7 @@ var PHASER_PATH = './node_modules/phaser/build/';
 var BUILD_PATH = './build';
 var SCRIPTS_PATH = BUILD_PATH + '/scripts';
 var SOURCE_PATH = './game';
+var ASSETS_PATH = SOURCE_PATH + '/assets'
 var STATIC_PATH = './static';
 var ENTRY_FILE = SOURCE_PATH + '/game.js';
 var OUTPUT_FILE = 'game.js';
@@ -67,6 +68,14 @@ function copyStatic() {
     return gulp.src(STATIC_PATH + '/**/*')
         .pipe(gulp.dest(BUILD_PATH));
 }
+
+/**
+ * Copies all the game assets to build.
+ */
+ function copyAssets() {
+     return gulp.src(ASSETS_PATH + '/**/*')
+         .pipe(gulp.dest(BUILD_PATH));
+ }
 
 /**
  * Copies required Phaser files from the './node_modules/Phaser' folder into the './build/scripts' folder.
@@ -149,7 +158,8 @@ function serve() {
 
 gulp.task('cleanBuild', cleanBuild);
 gulp.task('copyStatic', ['cleanBuild'], copyStatic);
-gulp.task('copyPhaser', ['copyStatic'], copyPhaser);
+gulp.task('copyAssets', ['copyStatic'], copyAssets);
+gulp.task('copyPhaser', ['copyAssets'], copyPhaser);
 gulp.task('build', ['copyPhaser'], build);
 gulp.task('fastBuild', build);
 gulp.task('serve', ['build'], serve);

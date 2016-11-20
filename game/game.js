@@ -1,13 +1,13 @@
-import Boot from 'states/Boot';
-import PreLogin from 'states/PreLogin';
-import Login from 'states/Login';
-import PreSelect from 'states/PreSelect';
-import SelectChar from 'states/SelectChar';
-import PreCreateChar from 'states/PreCreateChar';
-import CreateChar from 'states/CreateChar'
-import PreMain from 'states/PreMain';
-import Main from 'states/Main';
-import Reload from 'states/Reload';
+import Boot from './states/Boot';
+import PreLogin from './states/PreLogin';
+import Login from './states/Login';
+import PreSelect from './states/PreSelect';
+import SelectChar from './states/SelectChar';
+import PreCreateChar from './states/PreCreateChar';
+import CreateChar from './states/CreateChar'
+import PreMain from './states/PreMain';
+import Main from './states/Main';
+import Reload from './states/Reload';
 
 class Game extends Phaser.Game{
 

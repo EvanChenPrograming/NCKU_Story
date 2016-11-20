@@ -1,7 +1,7 @@
 class PreMain extends Phaser.State {
 
   constructor(){
-
+    super();
   }
 
   init() {
