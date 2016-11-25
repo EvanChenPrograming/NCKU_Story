@@ -22,7 +22,7 @@ class PreLogin extends Phaser.State {
     GlobalVar.bgm=this.game.add.audio('bgm', 1, true)
     GlobalVar.bgm.play();
     this.add.plugin(Fabrique.Plugins.InputField);
-    
+
 
     this.state.start('Login');
   }

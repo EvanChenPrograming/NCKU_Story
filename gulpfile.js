@@ -17,6 +17,7 @@ var browserSync = require('browser-sync');
  */
 var PHASER_PATH = './node_modules/phaser/build/';
 var PHASER_INPUT_PATH = './node_modules/phaser-input/build/';
+var JQUERY_PATH = './node_modules/jquery/dist/'
 var BUILD_PATH = './build';
 var SCRIPTS_PATH = BUILD_PATH + '/scripts';
 var SOURCE_PATH = './game';
@@ -102,6 +103,10 @@ function copyPhaserInput() {
   return gulp.src(PHASER_INPUT_PATH + 'phaser-input.min.js')
     .pipe(gulp.dest(SCRIPTS_PATH));
 }
+function copyJQuery() {
+  return gulp.src(JQUERY_PATH + 'jquery.min.js')
+    .pipe(gulp.dest(SCRIPTS_PATH));
+}
 /**
  * Transforms ES2015 code into ES5 code.
  * Optionally: Creates a sourcemap file 'game.js.map' for debugging.
@@ -164,7 +169,8 @@ gulp.task('cleanBuild', cleanBuild);
 gulp.task('copyStatic', ['cleanBuild'], copyStatic);
 gulp.task('copyAssets', ['copyStatic'], copyAssets);
 gulp.task('copyPhaser', ['copyAssets'], copyPhaser);
-gulp.task('copyPhaserInput', ['copyPhaser'], copyPhaserInput);
+gulp.task('copyJQuery', ['copyPhaser'], copyJQuery);
+gulp.task('copyPhaserInput', ['copyJQuery'], copyPhaserInput);
 gulp.task('build', ['copyPhaserInput'], build);
 gulp.task('fastBuild', build);
 gulp.task('serve', ['build'], serve);

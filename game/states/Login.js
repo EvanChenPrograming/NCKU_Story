@@ -5,7 +5,6 @@ let user_name, user_passwd;
 class Login extends Phaser.State {
 
   create() {
-
     this.game.add.tileSprite(0, 0, 1280, 720, 'bg');
     this.confirm = this.game.add.button(this.game.world.centerX+100, 400, 'enter', this.onClick);
     user_name = this.game.add.inputField(540, 233, {
