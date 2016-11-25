@@ -17,6 +17,9 @@
     "LUK": 10,
     "WIS": 10
   },
-  "CurrentMap": [1, 0]
+  "CurrentMap": [1, 0],
+  "charconfig": {
+    "a": 1
+  }
 
 }

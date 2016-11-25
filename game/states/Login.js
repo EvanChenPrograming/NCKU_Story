@@ -51,11 +51,13 @@ class Login extends Phaser.State {
       user_passwd.destroy();
       GlobalVar.usrUID = 34041092;
       //request for char & map with userUID
-      $.getJSON('testJSON/char.json',(data)=>{GlobalVar.Char=data;})
-      .then($.getJSON('map/mapconfig/map'+GlobalVar.Char.CurrentMap[0]+'conf.json', (data)=>{GlobalVar.MapInfo=data;}))
-      .then(this.game.state.start('PreMain'));
+      $.getJSON('testJSON/char.json',(data)=>{GlobalVar.Char=data;$.getJSON('map/mapconfig/map'+GlobalVar.Char.CurrentMap[0]+'conf.json', (data)=>{GlobalVar.MapInfo=data;(this.game.state.start('PreMain'))})});
 
+
+      GlobalVar.bgm=this.game.add.audio('PreMainbgm', 1, true)
+      GlobalVar.bgm.play();
       //this.state.start('PreSelect');
+
     }
     else {
       alert('Wrong password or wrong username!!');
