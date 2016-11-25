@@ -1,0 +1,22 @@
+{
+  "Id": "GM",
+  "Level": 10,
+  "Exp": [100, 1000],
+  "Hp": [2890, 3000],
+  "Mp": [1500, 1600],
+  "MaxATK": 1000,
+  "MaxMATK": "",
+  "DEF": "",
+  "MDEF": "",
+  "Speed": 150,
+  "Jump": 250,
+  "Status": {
+    "STR": 10,
+    "INT": 10,
+    "DEX": 10,
+    "LUK": 10,
+    "WIS": 10
+  },
+  "CurrentMap": [1, 0]
+
+}
