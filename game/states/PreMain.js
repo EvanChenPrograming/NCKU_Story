@@ -12,6 +12,8 @@ class PreMain extends Phaser.State {
     this.load.setPreloadSprite(this.preloadBar);
     this.game.stage.backgroundColor = '#0e2c5b';
 
+    this.load.image('startbt', 'system/start.png');
+
     // load main asssets
       //map
     this.load.tilemap('tilemap', 'map/json/'+GlobalVar.MapInfo.json, null, Phaser.Tilemap.TILED_JSON);
@@ -26,11 +28,12 @@ class PreMain extends Phaser.State {
       this.load.image(GlobalVar.MapInfo.bg[i][0], 'map/bg/'+GlobalVar.MapInfo.bg[i][0]+'.png');
     }
 
-    this.load.audio('Mainbgm', 'bgm/'+GlobalVar.MapInfo.bgm+'.mp3');
+    this.load.audio('Mainbgm', 'bgm/'+GlobalVar.MapInfo.bgm[0]+'.mp3');
 
 
     //load char assets
-
+      // test
+    this.load.spritesheet('test', 'character/test/org_h01.png', 32, 32);
     // load monster assets
 
     // load NPC assets
@@ -40,8 +43,12 @@ class PreMain extends Phaser.State {
 
   }
   create(){
+    this.add.button(this.game.world.centerX, this.game.world.centerY, 'startbt', this.onClick, this)
+  }
+
+  onClick(){
     GlobalVar.bgm.stop();
-    GlobalVar.bgm=this.game.add.audio('Mainbgm', 1, true)
+    GlobalVar.bgm=this.game.add.audio('Mainbgm', GlobalVar.MapInfo.bgm[1], true)
     GlobalVar.bgm.play();
     this.state.start('Main');
   }

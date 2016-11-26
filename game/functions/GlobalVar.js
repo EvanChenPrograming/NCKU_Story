@@ -6,4 +6,4 @@ export let usrUID = undefined;
 export let Char = {};
 export let MapInfo = {};
 export let NPCInfo = [];
-export let MomsterInfo = {};
+export let MonsterInfo = {};
