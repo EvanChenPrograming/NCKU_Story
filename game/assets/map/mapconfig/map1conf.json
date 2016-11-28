@@ -1,7 +1,22 @@
 {
   "MapNum": 1,
-  "json": "",
-  "BgLayer": 3,
-  "TileLayer": 3,
-  "Trans":"bla"
+  "json": "map1.json",
+  "Layer": 3,
+  "BackGround": 3,
+  "CollideTileIdx": 47,
+  "TransNum": 1,
+  "TransPoint": {
+    "0": [500, 500],
+    "1": [100, 800]
+  },
+  "Rope": [0,[0]],
+  "Ladder": [1,[158,167]],
+  "Tiles": ["Forest_Tree", "Jungle_terrainwater"],
+  "obj": ["environmenttrans", "objects"],
+  "bg": [
+    2,
+    ["bb1", 0, 0, 1.2, 0],
+    ["bb2", 0, 0, 1, 1]
+  ],
+  "bgm": ["ikenai", 0.5]
 }

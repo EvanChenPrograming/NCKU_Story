@@ -15,6 +15,10 @@ class PreLogin extends Phaser.State {
     this.load.image('bg', 'system/login.png');
     this.load.image('enter', 'system/enter.png')
 
+    //load premain assets
+    this.load.image('tree', 'system/tree.jpg');
+    this.load.audio('PreMainbgm', 'bgm/zenzenzen.mp3');
+
   }
 
   create() {
