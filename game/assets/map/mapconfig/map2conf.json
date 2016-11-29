@@ -9,8 +9,8 @@
     "1": [100, 108, 1],
     "2": [1505, 1028, 3]
   },
-  "Rope": [true,[0]],
-  "Ladder": [false,[158,167]],
+  "Rope": [false,[0]],
+  "Ladder": [true,[158,167]],
   "Tiles": ["Forest_Tree", "Jungle_terrainwater"],
   "obj": ["environmenttrans", "objects", "Village_well"],
   "bg": [

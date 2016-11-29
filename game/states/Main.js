@@ -60,8 +60,7 @@ class Main extends Phaser.State {
       left: false,
       right: false
     });
-    this.game.physics.arcade.TILE_BIAS = 20;
-
+    this.game.physics.arcade.TILE_BIAS = 20; //origin is 12
 
     //Func.setTileCollision()
 
