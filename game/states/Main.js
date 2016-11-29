@@ -60,6 +60,7 @@ class Main extends Phaser.State {
       left: false,
       right: false
     });
+    this.game.physics.arcade.TILE_BIAS = 20;
 
 
     //Func.setTileCollision()
@@ -67,8 +68,20 @@ class Main extends Phaser.State {
 
 
     // test sprite
-    player = this.game.add.sprite(GlobalVar.MapInfo.TransPoint[0][0],GlobalVar.MapInfo.TransPoint[0][1],'test');
+    if(GlobalVar.fromMap!=0){
+      let i=1,x=0,y=0;
+      for( i=1;i<=GlobalVar.MapInfo.TransNum;i++){
+      console.log(GlobalVar.MapInfo.TransPoint[i][2]);
+        if(GlobalVar.MapInfo.TransPoint[i][2] == GlobalVar.fromMap){
+          x=GlobalVar.MapInfo.TransPoint[i][0]-20;
+          y=GlobalVar.MapInfo.TransPoint[i][1]-42;
+        }
+      }
+      player = this.game.add.sprite(x, y, 'test');
+    }
+    else player = this.game.add.sprite(GlobalVar.MapInfo.TransPoint[0][0],GlobalVar.MapInfo.TransPoint[0][1],'test');
     this.game.physics.arcade.enable(player);
+    player.anchor.setTo(0.5,0.5);
     player.body.gravity.y = 500;
     player.body.collideWorldBounds = true;
 
@@ -134,6 +147,7 @@ class Main extends Phaser.State {
         player.body.velocity.y = -300;
     }
     if (cursors.up.isDown && player.body.onFloor() && onTrans){
+      GlobalVar.fromMap=GlobalVar.Char.CurrentMap[0];
       GlobalVar.Char.CurrentMap[0]=GlobalVar.MapInfo.TransPoint[onTransID][2];
       $.getJSON('map/mapconfig/map'+GlobalVar.Char.CurrentMap[0]+'conf.json', (data)=>{
         GlobalVar.MapInfo=data;
