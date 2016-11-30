@@ -13,6 +13,7 @@ class PreMain extends Phaser.State {
     this.game.stage.backgroundColor = '#0e2c5b';
 
     this.load.image('startbt', 'system/start.png');
+    this.load.spritesheet('trans', 'map/obj/trans.png', 102, 138);
 
     // load main asssets
       //map

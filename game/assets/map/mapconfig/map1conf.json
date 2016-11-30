@@ -1,16 +1,15 @@
 {
   "MapNum": 1,
   "json": "map1.json",
-  "Layer": 3,
   "BackGround": 3,
   "CollideTileIdx": 47,
   "TransNum": 1,
   "TransPoint": {
     "0": [500, 500],
-    "1": [100, 800]
+    "1": [1700, 742, 2]
   },
-  "Rope": [0,[0]],
-  "Ladder": [1,[158,167]],
+  "Rope": [true,[0]],
+  "Ladder": [false,[158,167]],
   "Tiles": ["Forest_Tree", "Jungle_terrainwater"],
   "obj": ["environmenttrans", "objects"],
   "bg": [
