@@ -14,6 +14,8 @@ class PreMain extends Phaser.State {
 
     this.load.image('startbt', 'system/start.png');
     this.load.spritesheet('trans', 'map/obj/trans.png', 102, 138);
+    this.load.image('textboxbg', 'system/a.png');
+    this.load.image('textboxbutton', 'system/b.png');
 
     // load main asssets
       //map

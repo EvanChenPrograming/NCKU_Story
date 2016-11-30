@@ -1,6 +1,8 @@
 import * as GlobalVar from "../functions/GlobalVar"
 import Func from "../functions/func"
 
+import Textbox from "../feature/Textbox"
+
 let map, base, collide, bg = [], rope, ladder, trans;
 let player, shadow = [];
 let npc = [];
@@ -30,10 +32,7 @@ class Main extends Phaser.State {
     for (const pix of GlobalVar.MapInfo.obj){
       map.addTilesetImage(pix, pix);
     }
-
-    for (let i=1;i<=GlobalVar.MapInfo.BackGround;i++){
-      map.createLayer('back'+i);
-    }
+    
     base = map.createLayer('base');
     base.resizeWorld();
     collide = map.createLayer('collide');
@@ -70,7 +69,6 @@ class Main extends Phaser.State {
     if(GlobalVar.fromMap!=0){
       let i=1,x=0,y=0;
       for( i=1;i<=GlobalVar.MapInfo.TransNum;i++){
-      console.log(GlobalVar.MapInfo.TransPoint[i][2]);
         if(GlobalVar.MapInfo.TransPoint[i][2] == GlobalVar.fromMap){
           x=GlobalVar.MapInfo.TransPoint[i][0]-20;
           y=GlobalVar.MapInfo.TransPoint[i][1]-42;
@@ -94,20 +92,27 @@ class Main extends Phaser.State {
     map.createLayer('layer3');
 
     trans = this.add.group();
-    trans.enableBody = true;
     for(let i=0;i<GlobalVar.MapInfo.TransNum;i++){
+      let transBody = this.game.add.sprite(GlobalVar.MapInfo.TransPoint[i+1][0],GlobalVar.MapInfo.TransPoint[i+1][1],'');
       let transTMP = this.game.add.sprite(GlobalVar.MapInfo.TransPoint[i+1][0],GlobalVar.MapInfo.TransPoint[i+1][1],'trans');
-      transTMP.name=i+1;
+      transBody.name=i+1;
+      this.game.physics.arcade.enable(transBody);
+      transBody.body.setSize(47,47);
+      transBody.anchor.setTo(0.5,1);
       transTMP.scale.setTo(0.8);
       transTMP.anchor.setTo(0.5,1);
       transTMP.animations.add('shine',[0,1,2,3,2,1], 8, true);
       transTMP.animations.play('shine');
-      trans.add(transTMP, false, i);
+      trans.add(transTMP);
+      trans.add(transBody);
     }
 
     //get point
     player.inputEnabled = true;
     player.events.onInputOver.add(this.getPoint, this);
+    let a = this.add.sprite(800,800,'test',1);
+    a.inputEnabled = true;
+    a.events.onInputDown.add(()=>{let tmm=new Textbox(this.game,this.game.camera);console.log('clicked')} ,this);
 
 
 
