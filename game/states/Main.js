@@ -32,7 +32,7 @@ class Main extends Phaser.State {
     for (const pix of GlobalVar.MapInfo.obj){
       map.addTilesetImage(pix, pix);
     }
-    
+
     base = map.createLayer('base');
     base.resizeWorld();
     collide = map.createLayer('collide');
@@ -67,8 +67,9 @@ class Main extends Phaser.State {
 
     // test sprite
     if(GlobalVar.fromMap!=0){
-      let i=1,x=0,y=0;
-      for( i=1;i<=GlobalVar.MapInfo.TransNum;i++){
+      let x=0,y=0;
+      for( let i in GlobalVar.MapInfo.TransPoint){
+        if(i=='0')continue;
         if(GlobalVar.MapInfo.TransPoint[i][2] == GlobalVar.fromMap){
           x=GlobalVar.MapInfo.TransPoint[i][0]-20;
           y=GlobalVar.MapInfo.TransPoint[i][1]-42;
@@ -92,10 +93,11 @@ class Main extends Phaser.State {
     map.createLayer('layer3');
 
     trans = this.add.group();
-    for(let i=0;i<GlobalVar.MapInfo.TransNum;i++){
-      let transBody = this.game.add.sprite(GlobalVar.MapInfo.TransPoint[i+1][0],GlobalVar.MapInfo.TransPoint[i+1][1],'');
-      let transTMP = this.game.add.sprite(GlobalVar.MapInfo.TransPoint[i+1][0],GlobalVar.MapInfo.TransPoint[i+1][1],'trans');
-      transBody.name=i+1;
+    for(let i in GlobalVar.MapInfo.TransPoint){
+      if(i=='0')continue;
+      let transBody = this.game.add.sprite(GlobalVar.MapInfo.TransPoint[i][0],GlobalVar.MapInfo.TransPoint[i][1],'');
+      let transTMP = this.game.add.sprite(GlobalVar.MapInfo.TransPoint[i][0],GlobalVar.MapInfo.TransPoint[i][1],'trans');
+      transBody.name=i;
       this.game.physics.arcade.enable(transBody);
       transBody.body.setSize(47,47);
       transBody.anchor.setTo(0.5,1);
