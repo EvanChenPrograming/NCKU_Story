@@ -1,7 +1,6 @@
 {
   "MapNum": 2,
   "json": "map2.json",
-  "BackGround": 3,
   "CollideTileIdx": 47,
   "TransNum": 2,
   "TransPoint": {
