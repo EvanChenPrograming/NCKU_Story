@@ -1,0 +1,32 @@
+{
+  "MonName": "dirty",
+  "Hp": 100,
+  "Atk": 10,
+  "Exp": 100,
+  "Gravity": 500,
+  "Frame1": "sdf",
+  "Frame1Stat": [32,32,9],
+  "Animation1": {
+    "right": [3,4,5]
+  },
+  "Frame2": "sdf",
+  "Frame2Stat": [32,32,9],
+  "Animation2": {
+    "right": [3,4,5]
+  },
+  "PatternGen":{
+    "right": {
+      "Probability": 20,
+      "VX": 300,
+      "VY": 0,
+      "Skill": "",
+      "AtkOff": 0
+    }
+  },
+  "PatternCon":{
+    "Hp":{
+      "20": "shake"
+    }
+  }
+
+}

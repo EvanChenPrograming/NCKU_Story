@@ -1,5 +1,6 @@
 import * as GlobalVar from "../functions/GlobalVar"
 import Func from "../functions/func"
+import Monster from "../objects/Monster"
 
 import Textbox from "../feature/Textbox"
 
@@ -13,11 +14,12 @@ let onGround, faceLeft, onClimb, onTrans;
 let onTransID;
 
 let keys, jump, cursors;
+let b;
 
 class Main extends Phaser.State {
 
   create() {
-    GlobalVar.bgm.stop();
+    // GlobalVar.bgm.stop();
     this.game.stage.backgroundColor = '#fff';
 
     //bg  todo
@@ -112,10 +114,11 @@ class Main extends Phaser.State {
     //get point
     player.inputEnabled = true;
     player.events.onInputOver.add(this.getPoint, this);
-    let a = this.add.sprite(800,800,'test',1);
-    a.inputEnabled = true;
-    a.events.onInputDown.add(()=>{let tmm=new Textbox(this.game,this.game.camera);console.log('clicked')} ,this);
-
+    b = new Monster(this.game,500,500,this.camera, {
+      'bodySizeX': 32,
+      'bodySizeY': 32,
+      'name': 'test'
+    });
 
 
 
@@ -126,6 +129,10 @@ class Main extends Phaser.State {
   }
 
   update() {
+    this.game.physics.arcade.collide(b, base);
+    this.game.physics.arcade.collide(b, collide);
+    this.game.physics.arcade.collide(b, player);
+
     this.game.physics.arcade.collide(player, base);
     this.game.physics.arcade.collide(player, collide);
     onTrans = this.game.physics.arcade.overlap(player,trans, (player, tran)=>{onTransID=tran.name;});

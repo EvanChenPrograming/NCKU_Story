@@ -15,7 +15,7 @@ class Textbox extends Phaser.Sprite{
     this.inputEnabled = true;
     this.input.enableDrag();
 
-    text = game.add.Text(0, 0, '我是大魔王！！', { font: "15px Arial", fill: "#19de65"});
+    text = game.add.text(0, 0, '我是'+'\n'+'大魔王！！', { font: "15px Arial", fill: "#19de65"});
     this.addChild(text);
 
 
