@@ -37,6 +37,10 @@ class PreMain extends Phaser.State {
     //load char assets
       // test
     this.load.spritesheet('test', 'character/test/org_h01.png', 32, 32);
+    let sheet = GlobalVar.Char.Sheets;
+    for(let it in sheet){
+      this.load.spritesheet(it.toString(), sheet[it].dir+it.toString()+'.png', sheet[it].width, sheet[it].height, sheet[it].frames);
+    }
     // load monster assets
 
     // load NPC assets

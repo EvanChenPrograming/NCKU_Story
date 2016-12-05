@@ -5,21 +5,63 @@
   "Hp": [2890, 3000],
   "Mp": [1500, 1600],
   "MaxATK": 1000,
-  "MaxMATK": "",
-  "DEF": "",
-  "MDEF": "",
+  "MaxMATK": 0,
+  "DEF": 0,
+  "MDEF": 0,
   "Speed": 150,
-  "Jump": 250,
+  "Jump": 300,
   "Status": {
-    "STR": 10,
-    "INT": 10,
-    "DEX": 10,
-    "LUK": 10,
-    "WIS": 10
+    "STR": 0,
+    "INT": 0,
+    "DEX": 0,
+    "LUK": 0,
+    "WIS": 0
   },
-  "CurrentMap": [1, 0],
-  "charconfig": {
-    "a": 1
+  "CurrentMap": [1],
+  "Sheets":{
+    "sample":{
+      "dir": "character/",
+      "width": 93,
+      "height": 95,
+      "frames": 11,
+      "offX": -44,
+      "offY": -38,
+      "animates": {
+        "stand": {
+          "frame": [0],
+          "fps": 5,
+          "loop": false,
+          "block": false
+        },
+        "jump": {
+          "frame": [5],
+          "fps": 5,
+          "loop": false,
+          "block": false
+        },
+        "walk": {
+          "frame": [1, 2, 3, 4],
+          "fps": 10,
+          "loop": true,
+          "block": false
+        },
+        "climb": {
+          "frame": [6, 7],
+          "fps": 5,
+          "loop": true,
+          "block": false
+        },
+        "attack": {
+          "frame": [8, 9, 10],
+          "fps": 5,
+          "loop": false,
+          "block": true
+        }
+      }
+
+    }
   }
+
+
 
 }

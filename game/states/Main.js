@@ -1,6 +1,7 @@
 import * as GlobalVar from "../functions/GlobalVar"
 import Func from "../functions/func"
 import Monster from "../objects/Monster"
+import Player from "../objects/Player"
 
 import Textbox from "../feature/Textbox"
 
@@ -13,7 +14,7 @@ let onGround, faceLeft, onClimb, onTrans;
 // flags num
 let onTransID;
 
-let keys, jump, cursors;
+let keys, jump, cursors, attack;
 let b;
 
 class Main extends Phaser.State {
@@ -74,21 +75,21 @@ class Main extends Phaser.State {
         if(i=='0')continue;
         if(GlobalVar.MapInfo.TransPoint[i][2] == GlobalVar.fromMap){
           x=GlobalVar.MapInfo.TransPoint[i][0]-20;
-          y=GlobalVar.MapInfo.TransPoint[i][1]-42;
+          y=GlobalVar.MapInfo.TransPoint[i][1]-93;
         }
       }
-      player = this.game.add.sprite(x, y, 'test');
+      player = new Player(this.game,x, y, this.camera, GlobalVar.Char);
     }
-    else player = this.game.add.sprite(GlobalVar.MapInfo.TransPoint[0][0],GlobalVar.MapInfo.TransPoint[0][1],'test');
-    this.game.physics.arcade.enable(player);
-    player.anchor.setTo(0.5,0.5);
-    player.body.gravity.y = 500;
-    player.body.collideWorldBounds = true;
-
-    player.animations.add('jump', [0, 1, 2],10 ,false);
-    player.animations.add('left', [3, 4, 5], 10, true);
-    player.animations.add('right', [6, 7, 8], 10, true);
-    player.animations.add('up', [9, 10, 11], 10, true);
+    else player = new Player(this.game,GlobalVar.MapInfo.TransPoint[0][0], GlobalVar.MapInfo.TransPoint[0][1], this.camera, GlobalVar.Char);
+    // this.game.physics.arcade.enable(player);
+    // player.anchor.setTo(0.5,0.5);
+    // player.body.gravity.y = 500;
+    // player.body.collideWorldBounds = true;
+    //
+    // player.animations.add('jump', [0, 1, 2],10 ,false);
+    // player.animations.add('left', [3, 4, 5], 10, true);
+    // player.animations.add('right', [6, 7, 8], 10, true);
+    // player.animations.add('up', [9, 10, 11], 10, true);
     this.game.camera.follow(player);
 
 
@@ -124,6 +125,7 @@ class Main extends Phaser.State {
 
     //keys
     jump = this.game.input.keyboard.addKey(Phaser.Keyboard.ALT);
+    attack = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACE);
     cursors = this.game.input.keyboard.createCursorKeys();
 
   }
@@ -139,26 +141,25 @@ class Main extends Phaser.State {
 
     // test
 
-    player.body.velocity.x = 0;
     if (cursors.left.isDown)
     {
-        player.body.velocity.x = -150;
-        player.animations.play('left');
+      player.LeftPressed();
     }
     else if (cursors.right.isDown)
     {
-        player.body.velocity.x = 150;
-        player.animations.play('right');
+      player.RightPressed();
     }
-    else
+    if (attack.isDown){
+      player.AttackPressed();
+    }
+    if (jump.isDown)
     {
-        player.animations.stop();
-        player.frame = 1;
+      player.JumpPressed();
     }
-    if (jump.isDown && player.body.onFloor())
-    {
-        player.body.velocity.y = -300;
-    }
+
+    player.Action();
+
+
     if (cursors.up.isDown && player.body.onFloor() && onTrans){
       GlobalVar.fromMap=GlobalVar.Char.CurrentMap[0];
       GlobalVar.Char.CurrentMap[0]=GlobalVar.MapInfo.TransPoint[onTransID][2];

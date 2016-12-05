@@ -37,7 +37,7 @@ class Login extends Phaser.State {
       textAlign: 'center',
       type: Fabrique.InputType.password,
     });
-    user_passwd.setText(GlobalVar.usr_passwd);
+    // user_passwd.setText(GlobalVar.usr_passwd);
     //this.KeyEnter = this.game.input.keyboard.addKey(Phaser.Keyboard.ENTER);
 
   }
@@ -45,7 +45,7 @@ class Login extends Phaser.State {
   onClick() {
 
     //not communicating with server
-    if(user_name.value == GlobalVar.usr_name && user_passwd.value == GlobalVar.usr_passwd){
+    if(user_name.value == GlobalVar.usr_name /*&& user_passwd.value == GlobalVar.usr_passwd*/){
       GlobalVar.bgm.stop();
       user_name.destroy();
       user_passwd.destroy();
