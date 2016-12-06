@@ -19,6 +19,10 @@ class PreLogin extends Phaser.State {
     this.load.image('tree', 'system/tree.jpg');
     this.load.audio('PreMainbgm', 'bgm/zenzenzen.mp3');
 
+    //test
+    $.getJSON('monster/json/dirtyconf.json',(data)=>{GlobalVar.MonsterInfo=data;});
+    $.getJSON('NPC/conf/dirtyconf.json',(data)=>{GlobalVar.NPCInfo=data;});
+
   }
 
   create() {

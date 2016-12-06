@@ -41,6 +41,8 @@ class PreMain extends Phaser.State {
     for(let it in sheet){
       this.load.spritesheet(it.toString(), sheet[it].dir+it.toString()+'.png', sheet[it].width, sheet[it].height, sheet[it].frames);
     }
+    this.load.spritesheet('dirty', 'character/dirty.png', 93, 95, 6);
+
     // load monster assets
 
     // load NPC assets

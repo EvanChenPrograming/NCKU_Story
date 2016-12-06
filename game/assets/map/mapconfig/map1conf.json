@@ -7,20 +7,14 @@
     "0": [500, 500],
     "1": [1700, 742, 2]
   },
-  "Rope": [true,[0]],
-  "Ladder": [false,[158,167]],
+  "Rope": [false,[0]],
+  "Ladder": [true,[288,289,290]],
   "Tiles": ["Forest_Tree", "Jungle_terrainwater"],
-  "obj": ["environmenttrans", "objects"],
+  "obj": ["environmenttrans", "objects","ladder"],
   "bg": [
     2,
     ["bb1", 0, 0, 1.2, 0],
     ["bb2", 0, 0, 1, 1]
   ],
-  "bgm": ["ikenai", 0.5],
-  "NPC": {
-    "dirty":[600,800]
-  },
-  "Monster":{
-    "dirty": ""
-  }
+  "bgm": ["ikenai", 0.5]
 }

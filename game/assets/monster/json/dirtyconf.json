@@ -3,16 +3,41 @@
   "Hp": 100,
   "Atk": 10,
   "Exp": 100,
+  "Speed": 150,
+  "Jump": 300,
   "Gravity": 500,
-  "Frame1": "sdf",
-  "Frame1Stat": [32,32,9],
-  "Animation1": {
-    "right": [3,4,5]
-  },
-  "Frame2": "sdf",
-  "Frame2Stat": [32,32,9],
-  "Animation2": {
-    "right": [3,4,5]
+  "bodySizeX": 33,
+  "bodySizeY": 94,
+  "Sheets":{
+    "dirty":{
+      "dir": "character/",
+      "width": 93,
+      "height": 95,
+      "frames": 6,
+      "offX": -16,
+      "offY": -16,
+      "animates": {
+        "stand": {
+          "frame": [0],
+          "fps": 5,
+          "loop": false,
+          "block": false
+        },
+        "walk": {
+          "frame": [1, 2, 3, 4],
+          "fps": 8,
+          "loop": true,
+          "block": false
+        },
+        "attack": {
+          "frame": [5],
+          "fps": 5,
+          "loop": false,
+          "block": true
+        }
+      }
+
+    }
   },
   "PatternGen":{
     "right": {
