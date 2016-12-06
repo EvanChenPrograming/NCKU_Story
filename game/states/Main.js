@@ -54,7 +54,7 @@ class Main extends Phaser.State {
       ladder = this.game.add.group();
       ladder.enableBody=true;
       map.createFromTiles(GlobalVar.MapInfo.Ladder[1], null, null, ladderlayer, ladder);
-      ladder.forEach((child)=>{child.x+=16;child.scale.setTo(0.2,1);console.log(child);}, this);
+      ladder.forEach((child)=>{child.x+=16;child.scale.setTo(0.2,1);}, this);
     }
 
     map.setCollisionByExclusion([0], true, base);
@@ -77,7 +77,7 @@ class Main extends Phaser.State {
     }
     if(GlobalVar.MapInfo.MapNum==2){
       for(let i=0;i<30;i++){
-        let tmp = new Monster(this.game,this.rnd.between(0,this.world.width),this.rnd.between(0,this.world.height)-500,this.camera,GlobalVar.MonsterInfo);
+        let tmp = new Monster(this.game,this.rnd.between(210,1350),this.rnd.between(52,1076),this.camera,GlobalVar.MonsterInfo);
         monster.add(tmp);
       }
     }
