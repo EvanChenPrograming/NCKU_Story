@@ -77,7 +77,7 @@ class Main extends Phaser.State {
     }
     if(GlobalVar.MapInfo.MapNum==2){
       for(let i=0;i<30;i++){
-        let tmp = new Monster(this.game,this.rnd.between(210,1350),this.rnd.between(52,1076),this.camera,GlobalVar.MonsterInfo);
+        let tmp = new Monster(this.game,this.rnd.between(210,1350),this.rnd.between(52,1012),this.camera,GlobalVar.MonsterInfo);
         monster.add(tmp);
       }
     }
@@ -196,6 +196,10 @@ class Main extends Phaser.State {
     }
 
 
+  }
+
+  render(){
+    this.game.debug.text('monsters: '+ monster.countLiving(),32,32);
   }
 
   getPoint(){

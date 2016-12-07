@@ -29,6 +29,7 @@ class Monster extends Phaser.Sprite{
       this.body.gravity.y = 500;
       this.body.collideWorldBounds = true;
       this.body.setSize(mons.bodySizeX, mons.bodySizeY);
+      this.outOfBoundsKill=true;
 
       this.anime = game.add.group();
       let sheets = mons.Sheets;

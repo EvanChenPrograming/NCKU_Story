@@ -45,7 +45,7 @@ class Login extends Phaser.State {
   onClick() {
 
     //not communicating with server
-    if(user_name.value == GlobalVar.usr_name /*&& user_passwd.value == GlobalVar.usr_passwd*/){
+    if(user_name.value == GlobalVar.usr_name && user_passwd.value == 'nckustory'){
       GlobalVar.bgm.stop();
       user_name.destroy();
       user_passwd.destroy();
