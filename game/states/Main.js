@@ -187,7 +187,7 @@ class Main extends Phaser.State {
 
     player.Action();
     if(npc!==undefined)npc.Action();
-    monster.forEach((child)=>{child.Action();},this);
+    monster.forEachAlive((child)=>{child.Action();},this);
     if(GlobalVar.MapInfo.MapNum==2 && b==0){
       if(monster.getFirstAlive()==null){
         ++b;
@@ -198,9 +198,9 @@ class Main extends Phaser.State {
 
   }
 
-  render(){
-    this.game.debug.text('monsters: '+ monster.countLiving(),32,32);
-  }
+  // render(){
+  //   this.game.debug.text('monsters: '+ monster.countLiving(),32,32);
+  // }
 
   getPoint(){
     console.log('X: '+player.x+' Y: '+player.y);

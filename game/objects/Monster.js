@@ -119,6 +119,24 @@ class Monster extends Phaser.Sprite{
       this.onClimb=false;
     }
 
+    Attack(){
+      this.onAttack=true;
+      this.anime.callAll('play', null, 'attack');
+      // this.hitboxes.getByName('hitbox1').revive();
+      // setTimeout(()=>{this.hitboxes.getByName('hitbox1').revive();}, 100);
+
+      this.anime.forEach((child)=>{
+
+        child.animations.currentAnim.onComplete.addOnce(()=>{
+          this.onAttack=false;
+          this.stand();
+          // this.hitboxes.getByName('hitbox1').kill();
+          },
+          this);
+
+        },this);
+    }
+
 
 
 }
