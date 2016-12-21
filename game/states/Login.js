@@ -7,6 +7,9 @@ class Login extends Phaser.State {
   create() {
     this.game.add.tileSprite(0, 0, 1280, 720, 'bg');
     this.confirm = this.game.add.button(this.game.world.centerX+100, 400, 'enter', this.onClick);
+    Fabrique.Plugins.InputField.onKeyboardClose.add(function() {
+                    this.resizeBackgroundImage();
+                });
     user_name = this.game.add.inputField(540, 233, {
       font: '25px Arial',
       fill: '#212121',
@@ -45,7 +48,7 @@ class Login extends Phaser.State {
   onClick() {
 
     //not communicating with server
-    if(user_name.value == GlobalVar.usr_name && user_passwd.value == 'nckustory'){
+    if(user_name.value == GlobalVar.usr_name /*&& user_passwd.value == 'nckustory'*/){
       GlobalVar.bgm.stop();
       user_name.destroy();
       user_passwd.destroy();

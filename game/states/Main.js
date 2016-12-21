@@ -9,6 +9,7 @@ let map, base, collide, bg = [], monsBound,rope, ladder, trans;
 let player, shadow = [];
 let npc;
 let monster;
+let atk=false,jum=false;
 // flags bool
 let onTrans;
 // flags num
@@ -125,6 +126,8 @@ class Main extends Phaser.State {
     player.inputEnabled = true;
     player.events.onInputOver.add(this.getPoint, this);
 
+    this.game.input.onTap.add(this.onTap, this);
+
 
 
 
@@ -168,10 +171,10 @@ class Main extends Phaser.State {
     else if(cursors.down.isDown){
       player.DownPressed=true;
     }
-    if (attack.isDown){
+    if (attack.isDown || atk){
       player.AttackPressed=true;
     }
-    if (jump.isDown)
+    if (jump.isDown || jum)
     {
       player.JumpPressed=true;
     }
@@ -194,7 +197,7 @@ class Main extends Phaser.State {
         let tmp = new Textbox(this.game,this.camera,'不可能!!!'+'\n'+'我居然輸了.....');
       }
     }
-
+    atk=jum=false;
 
   }
 
@@ -205,7 +208,17 @@ class Main extends Phaser.State {
   getPoint(){
     console.log('X: '+player.x+' Y: '+player.y);
   }
+  onTap(pointer, doubleTap) {
+    if (doubleTap)
+    {
+        atk=true;
+    }
+    else
+    {
+        jum=true;
+    }
 
+}
   shutdown() {
 
   }
