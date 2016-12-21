@@ -1,0 +1,27 @@
+{
+  "MapNum": 2,
+  "json": "map2.json",
+  "CollideTileIdx": 47,
+  "TransNum": 2,
+  "TransPoint": {
+    "0": [148, 896],
+    "1": [100, 108, 1],
+    "2": [1505, 1028, 3]
+  },
+  "Rope": [false,[0]],
+  "Ladder": [false,[158,167]],
+  "Tiles": ["Forest_Tree", "Jungle_terrainwater"],
+  "obj": ["environmenttrans", "objects", "Village_well"],
+  "bg": [
+    2,
+    ["bb1", 0, 0, 1.2, 0],
+    ["bb2", 0, 0, 1, 1]
+  ],
+  "bgm": ["ikenai", 0.5],
+  "NPC": {
+    "dirty":[600,800]
+  },
+  "Monster":{
+    "dirty": ""
+  }
+}
