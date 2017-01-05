@@ -219,7 +219,7 @@ class Main extends Phaser.State {
 
   handleOrientation(e){
     let x = e.gamma;
-    let y = e.beta-90;
+    let y = e.beta;
     if(x>0)player.RightPressed=true;
     if(x<0)player.LeftPressed=true;
     if(y>0)player.UpPressed=true;
