@@ -1,0 +1,26 @@
+{
+  "NpcName": "SailingClubPresident",
+    "Speed": 0,
+    "Jump": 0,
+    "Gravity": 500,
+    "bodySizeX": 59,
+    "bodySizeY": 63,
+    "Sheets":{
+      "SailingClubPresident":{
+        "dir": "character/",
+        "width": 59,
+        "height": 63,
+        "frames": 1,
+        "offX": 0,
+        "offY": 0,
+        "animates": {
+          "stand": {
+            "frame": [0],
+            "fps": 5,
+            "loop": false,
+            "block": false
+          }
+        }
+      }
+    }
+}                                                                                                                                                                                                                                                

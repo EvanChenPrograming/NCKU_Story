@@ -1,0 +1,27 @@
+{
+  "NpcName": "SailingClubEmployee1",
+    "Speed": 0,
+    "Jump": 0,
+    "Gravity": 500,
+    "bodySizeX": 97,
+    "bodySizeY": 68,
+    "Sheets":{
+      "SailingClubEmployee1":{
+        "dir": "character/",
+        "width": 97,
+        "height": 68,
+        "frames": 1,
+        "offX": 0,
+        "offY": 0,
+        "animates": {
+          "stand": {
+            "frame": [0],
+            "fps": 5,
+            "loop": false,
+            "block": false
+          }
+        }
+      }
+    }
+}
+                                                                                                                                                                              

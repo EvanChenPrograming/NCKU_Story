@@ -1,0 +1,27 @@
+{
+  "NpcName": "NckuEadLeader",
+  "Speed": 0,
+  "Jump": 0,
+  "Gravity": 500,
+  "bodySizeX": 41,
+  "bodySizeY": 66,
+  "Sheets":{
+    "NckuEadLeader":{
+      "dir": "character/",
+      "width": 41,
+      "height": 66,
+      "frames": 1,
+      "offX": 0,
+      "offY": 0,
+      "animates": {
+        "stand": {
+          "frame": [0],
+          "fps": 5,
+          "loop": false,
+          "block": false
+        }
+      }
+    }
+  }
+}
+
